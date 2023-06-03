@@ -3792,8 +3792,147 @@ CounterPlugin.prototype.decrement = function () {
     this._value -= this._step;
 }
 
-const K1 = new CounterPlugin({ rootSelector: '#counter-1', step: 10 });
-console.log('Counter-1: ', K1);
+// const K1 = new CounterPlugin({ rootSelector: '#counter-1', step: 10 });
+// console.log('Counter-1: ', K1);
 
-const K2 = new CounterPlugin({ rootSelector: '#counter-2', step: 2 });
-console.log('Counter-2: ', K2);
+// const K2 = new CounterPlugin({ rootSelector: '#counter-2', step: 2 });
+// console.log('Counter-2: ', K2);
+
+
+class Maribo {
+    constructor(model = 'NoName', price = 100) {
+        this.model = model;
+        this.price = price;
+        console.log('Выполняется конструктор');
+
+    }
+}
+
+const Deribo = new Maribo();
+console.dir(Deribo);
+console.log('Constructor: ', Deribo);
+
+
+const Marvin = new Maribo('BMW', 40000);
+console.dir(Marvin);
+console.log('Constructor: ', Marvin);
+
+
+
+// let animal = {
+//     jumps: null
+// };
+// let rabbit = {
+//     __proto__: animal,
+//     jumps: true
+// };
+
+// alert(rabbit.jumps); // ? (1)  - true
+
+// delete rabbit.jumps;
+
+// alert(rabbit.jumps); // ? (2) - null
+
+// delete animal.jumps;
+
+// alert(rabbit.jumps); // ? (3) - undefined
+
+// let head = {
+//     glasses: 1
+// };
+
+// let table = {
+//     pen: 3
+// };
+
+// let bed = {
+//     sheet: 1,
+//     pillow: 2
+// };
+
+// let pockets = {
+//     money: 2000
+// };
+
+// pockets.__proto__ = bed;
+// bed.__proto__ = table;
+// table.__proto__ = head;
+
+// console.log('Result: ', pockets.pen);
+// console.dir(pockets);
+
+
+// let hamster = {
+
+//     stomach: [],
+//     eat(food) {
+//         this.stomach += [food] + " ";
+//     }
+// };
+
+// let speedy = {
+
+//     __proto__: hamster
+// };
+
+// let lazy = {
+//     __proto__: hamster
+// };
+
+// // Этот хомяк нашёл еду
+// speedy.eat("apple");
+// console.log('Speedy: ', speedy.stomach); // apple
+
+// // У этого хомяка тоже есть еда. Почему? Исправьте
+// lazy.eat("Melon");
+// lazy.eat("Avocado");
+// lazy.eat("Lemon");
+// console.log('Lazy: ', lazy.stomach); // apple
+
+// console.dir(lazy);
+
+
+
+// let arr1 = ['Dima', 'Anna', 'Julia'];
+// let [me, ...she] = arr1;
+// console.log('Me: ', me);
+// console.log('She: ', she);
+
+let options = {
+    title: "Menu",
+    width: 40,
+    height: 50,
+    thickness: 100
+};
+
+// let { width: w = prompt("width?"), title = prompt("title?") } = options;
+// let SecretWord = prompt("What is your name?");
+// console.log('Hello', SecretWord);
+
+let { title, ...restAr } = options;
+console.log('Options:', options);
+console.log('Title: ', title);
+console.log('Rest: ', restAr);
+
+
+function foo() {
+    console.log(this, " this is a function");
+
+}
+
+let SayM = function () {
+    console.log(this, " this is a function");
+
+}
+
+const ob2 = {
+    println: SayM
+};
+
+const obj = {
+    logCtx: foo
+};
+
+obj.logCtx();
+
+ob2.println();
