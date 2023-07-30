@@ -3909,30 +3909,251 @@ let options = {
 // let SecretWord = prompt("What is your name?");
 // console.log('Hello', SecretWord);
 
-let { title, ...restAr } = options;
-console.log('Options:', options);
-console.log('Title: ', title);
-console.log('Rest: ', restAr);
+// let { title, ...restAr } = options;
+// console.log('Options:', options);
+// console.log('Title: ', title);
+// console.log('Rest: ', restAr);
 
 
-function foo() {
-    console.log(this, " this is a function");
+// foo();
+// function foo() {
+//     console.log("This is a function foo()");
 
-}
+// }
 
-let SayM = function () {
-    console.log(this, " this is a function");
 
-}
+// const objA = {
+//     age: 22,
+//     myAge: () => {
+//         console.log('This ', this);
 
-const ob2 = {
-    println: SayM
+//     }
+// }
+// objA.myAge();
+
+// let user = {};
+// [user.name, user.surname] = "Ilya Kantor".split(' ');
+
+
+// console.log('Name: ', user.name); // Ilya
+// console.log('Surname: ', user.surname); // Kantor
+
+// let user = {
+//     name: "John",
+//     age: 30,
+//     sex: "male"
+// };
+
+// // цикл по ключам и значениям
+// for (let [key, value] of Object.entries(user)) {
+//     // alert(`${key}:${value}`); // name:John, затем age:30
+//     console.log(`${key}:${value}`);
+
+// }
+
+
+// let [name1, name2, ...name3] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+// console.log('"Julius", "Caesar", "Consul", "of the Roman Republic"');
+
+// console.log('Name1: ', name1);
+// console.log('Name2: ', name2);
+// console.log('Others: ', name3);
+
+// console.log('Others 1st: ', name3.length);
+
+// let [name = "Guest", surname = "Anonymous"] = ["Julius"];
+
+// console.log(name, surname);
+
+// Дестрактуризация
+// let title, width, height;
+
+// // ошибка будет в этой строке
+// ({ title, width, height } = { title: "Menu", width: 200, height: 100 });
+
+// console.log('Title: ', title);
+
+
+// let user = { name: "John", years: 30 };
+
+// let { name, years: age, isAdmin = false } = user;
+// // ваш код должен быть с левой стороны:
+// // ... = user
+
+// console.log('name:', name);
+// // John
+// console.log('age:', age);
+// // 30
+// console.log('isAdmin? - ', isAdmin);
+//  // false
+
+// let salaries = {
+//     "John": 100,
+//     "Pete": 300,
+//     "Mary": 250
+// };
+
+// function topSalary(salaries) {
+//     let max = 0;
+//     let maxName = null;
+
+
+//     for (let [key, value] of Object.entries(salaries)) {
+//         if (value > max) {
+//             max = value;
+//             maxName = key;
+//             // console.log('test');
+
+
+//         }
+
+
+//     }
+//     return console.log('maxName:', maxName);
+//     ;
+
+// };
+
+// topSalary(salaries);
+
+
+// class User {
+//     email;
+
+//     constructor(email) {
+//         this.email = email;
+//     }
+
+//     get email() {
+//         return this.email;
+//     }
+
+//     set email(newEmail) {
+//         this.email = newEmail;
+//     }
+// }
+
+// class Admin extends User {
+//     // Change code below this line
+
+//     static AccessLevel = {
+//         BASIC: "basic",
+//         SUPERUSER: "superuser",
+//     };
+
+//     constructor({ email, accessLevel }) {
+//         super(email);
+//         this.accessLevel = accessLevel;
+//     }
+
+//     // Change code above this line
+// }
+
+// const mango = new Admin({
+//     email: "mango@mail.com",
+//     accessLevel: Admin.AccessLevel.SUPERUSER,
+// });
+
+// console.log(mango.email); // "mango@mail.com"
+// console.log(mango.accessLevel); // "superuser"
+
+
+// class User {
+//     email;
+
+//     constructor(email) {
+//         this.email = email;
+//     }
+
+//     get email() {
+//         return this.email;
+//     }
+
+//     set email(newEmail) {
+//         this.email = newEmail;
+//     }
+// }
+// class Admin extends User {
+//     // Change code below this line
+//     blacklistedEmails = [];
+
+//     static AccessLevel = {
+//         BASIC: "basic",
+//         SUPERUSER: "superuser",
+//     };
+
+//     constructor({ email, accessLevel }) {
+//         super(email);
+//         this.accessLevel = accessLevel;
+//     }
+
+//     blacklist(email) {
+//         this.blacklistedEmails.push(email);
+//     }
+
+//     isBlacklisted(email) {
+//         // if (this.blacklistedEmails.)
+//         for (let i = 0; i < this.blacklistedEmails.length; i++) {
+//             // console.log(this.blacklistedEmails[i]);
+//             if (this.blacklistedEmails[i] == email) {
+//                 return true;
+//             }
+//             else {
+//                 return false;
+//             }
+
+//         }
+//     }
+//     // Change code above this line
+// }
+
+// const mango = new Admin({
+//     email: "mango@mail.com",
+//     accessLevel: Admin.AccessLevel.SUPERUSER,
+// });
+
+// console.log(mango.email); // "mango@mail.com"
+// console.log(mango.accessLevel); // "superuser"
+
+// mango.blacklist("poly@mail.com");
+// console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+// console.log(mango.isBlacklisted("mango@mail.com")); // false
+// console.log(mango.isBlacklisted("poly@mail.com")); // true
+
+const calculator = {
+    read(a, b) {
+        this.a = a;
+        this.b = b;
+    },
+    add() {
+        return (this.a ?? 0) + (this.b ?? 0);
+    },
+    addNumbers(c) {
+        this.c = c ?? 0;
+        return (this.a ?? 0) + (this.b ?? 0) + (this.c ?? 0);
+    },
+    mult() {
+        return (this.a ?? 1) * (this.b ?? 1);
+    }
 };
 
-const obj = {
-    logCtx: foo
-};
+// let a = prompt("A:");
+// let b = prompt("B:");
+calculator.read(2);
+console.dir(calculator);
+// console.log('Results: ', calculator.refs);
+console.log('Result Add: ', calculator.add());
+console.log('Result AddNumbers: ', calculator.addNumbers(25));
+console.log('Result Mult: ', calculator.mult());
 
-obj.logCtx();
 
-ob2.println();
+
+const clickBtnn = document.querySelector('[data-hi]');
+clickBtnn.addEventListener("click", onClick);
+
+function onClick(evt) {
+    console.log('Hello');
+
+
+}
