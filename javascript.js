@@ -4149,11 +4149,54 @@ console.log('Result Mult: ', calculator.mult());
 
 
 
-const clickBtnn = document.querySelector('[data-hi]');
-clickBtnn.addEventListener("click", onClick);
+// const clickBtnn = document.querySelector('[data-hi]');
+// clickBtnn.addEventListener("click", onClick);
 
-function onClick(evt) {
-    console.log('Hello');
+// function onClick(evt) {
+//     console.log('Hello');
 
+
+// }
+
+const formE1 = document.querySelector('.js-form');
+formE1.addEventListener("submit", onSubmit);
+
+function onSubmit(params) {
+    params.preventDefault(); //сбрасываем стандартные свойства для сабмита формы, которая перебрасывает на отдельное окно
+    const { UserName, UserNumber, UserEmail } = params.currentTarget.elements;
+    // console.log(UserName.value);
+    // console.log(UserEmail.value);
+    // console.log(UserNumber.value);
+    const data = {
+        name: UserName.value,
+        email: UserEmail.value,
+        age: UserNumber.value,
+    }
+    console.log(data);
+}
+
+
+
+window.addEventListener("keyup", onKey);   // document.addEventListener("keyup", onKey);
+function onKey(params) {
+    if (params.key === 'p') {
+        console.log('The P was pressed');
+        params.preventDefault();
+        return;
+    }
+    // console.log('Keyboard: ', params);
+}
+
+
+window.addEventListener("keydown", onKes)
+function onKes(params) {
+    if (params.metaKey && (params.code === "KeyC")) {
+        // console.log('The P was pressed');
+        console.log('Are you trying to Copy?');
+        params.preventDefault();
+        return;
+    }
+    console.log('Keyboard: ', params);
+    // console.log('Keyboard: ', params);
 
 }
