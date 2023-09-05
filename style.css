@@ -1,0 +1,22 @@
+.calls-js{
+    display: block;
+    color: chartreuse;
+    background-color: violet;
+    
+    /* text-align:justify; */
+}
+
+.submit-btn{
+    color: green;
+}
+
+.title-color{
+    color: red;
+}
+ul{
+    list-style: none;
+}
+
+.img{
+    width: 300px;
+}
